@@ -8,8 +8,24 @@ A workshop on understanding and using projections for spatial data in R
 1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
 1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
 1. previous Projeciton workshop notes
-1. [xkcd's Map Projections](https://xkcd.com/977/)
 
+Map Projection Fun:
+
+1. [xkcd's Map Projections](https://xkcd.com/977/)
+1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
+
+
+# Coordinate Reference System
+
+CRS = Datum + Projection + Additional Parameters
+
+## Datum
+
+## Projection
+
+## Additional Parameters
+
+---------------------------------------
 ## Previous notes:
 
 What is Latitude & Longitude?
