@@ -6,7 +6,7 @@ A workshop on understanding and using projections for spatial data in R
 
 1. [Rspatial.org](http://rspatial.org/spatial/rst/6-crs.html)
 1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
-1. [University of Colorado's Geographer's Craft](https://www.colorado.edu/geography/gcraft/notes/cartocom/cartocom_f.html)
+1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
 1. previous Projeciton workshop notes
 
 ## Previous notes:
