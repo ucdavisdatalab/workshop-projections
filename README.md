@@ -37,7 +37,22 @@ Common global datums are WGS84 and NAD83.  Datums can also be local, fit to a pa
 
 ## Projection
 
+A **Projection** is a mathematical transformation of the angular measurements on a round earth to a flat surface (i.e. paper or a computer screen).
+
+The units associated with a given projection can be linear (feet, meters, etc.) or angular (degrees).
+
+*Orange Peel Analogy: a projeciton is how you peel your orange and then flatten the peel.*
+
+![An orange peeled like a map projection](http://blogs.lincoln.ac.nz/gis/wp-content/uploads/sites/16/2017/03/laranjoide_1.jpg)
+
+Image source: http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/
+
+
 ## Additional Parameters
+
+Additional parameters are often necessary to create the full coordinate reference system.  For example, one common additional parameter is a definition of the center of the map.  The number of required additional parameters depends on what is needed by each specific projection.
+
+*Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
 
 ---------------------------------------
 ## Previous notes:
