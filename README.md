@@ -2,18 +2,6 @@
 A workshop on understanding and using projections for spatial data in R
 
 
-# Potential Resources for Me:
-
-1. [Rspatial.org](http://rspatial.org/spatial/rst/6-crs.html)
-1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
-1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
-1. previous Projeciton workshop notes
-
-Map Projection Fun:
-
-1. [xkcd's Map Projections](https://xkcd.com/977/)
-1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
-
 
 # Coordinate Reference System (CRS)
 
@@ -54,7 +42,33 @@ Additional parameters are often necessary to create the full coordinate referenc
 
 *Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
 
+
+# Projections
+
+Now that we've gotten a better idea of the whole system needed to visualiz geospatial data (CRS = Datum + Projection + Additional Parameters), let's focus a bit on the projection aspect of the equation.
+
+
+
 ---------------------------------------
+# Hands-On Tutorial
+
+
+
+---------------------------------------
+# Resources Used to Compile this Tutorial:
+
+1. [Rspatial.org](http://rspatial.org/spatial/rst/6-crs.html)
+1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
+1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
+
+Map Projection Fun:
+
+1. [xkcd's Map Projections](https://xkcd.com/977/)
+1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
+
+
+---------------------------------------
+
 ## Previous notes:
 
 What is Latitude & Longitude?
