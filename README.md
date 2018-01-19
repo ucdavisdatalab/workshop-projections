@@ -61,11 +61,13 @@ Now that we've gotten a better idea of the whole system needed to visualiz geosp
 1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
 1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
 1. [International Institute for Geo-Information Science and Earth Observation (ITC)](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html)
+1. [Carlos Furuti's Projections Page](http://www.progonos.com/furuti/MapProj/Normal/TOC/cartTOC.html)
 
 Map Projection Fun:
 
 1. [xkcd's Map Projections](https://xkcd.com/977/)
 1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
+1. [Carlos Furuti's Printable Projections](http://www.progonos.com/furuti/MapProj/Normal/ProjPoly/Foldout/foldout.html) Global projections you can print and assemble
 
 
 ---------------------------------------
