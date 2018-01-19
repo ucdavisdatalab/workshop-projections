@@ -29,7 +29,11 @@ It has angular units (i.e. degrees) and defines the starting point (i.e. where i
 
 Common global datums are WGS84 and NAD83.  Datums can also be local, fit to a particular area of the globe, but ill-fitting outside the area of intended use.
 
-*Orange Peel Analogy: a datum your choice of fruit to use in the orange peel analogy.  Is the earth an orange, a lemon, a grapefruit?*
+*Orange Peel Analogy: a datum is your choice of fruit to use in the orange peel analogy.  Is the earth an orange, a lemon, a lime, a grapefruit?*
+
+![Citrus fruit on display at the market](https://farm3.staticflickr.com/2260/2508805118_500f5bba28_n.jpg)
+
+
 
 ## Projection
 
