@@ -15,11 +15,21 @@ Map Projection Fun:
 1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
 
 
-# Coordinate Reference System
+# Coordinate Reference System (CRS)
 
 CRS = Datum + Projection + Additional Parameters
 
+*A common analogy employed to teach projections is the orange peel analogy.  If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made.   We will also use it here.*
+
 ## Datum
+
+A **Datum** is a model of the shape of the earth.
+
+It has angular units (i.e. degrees) and defines the starting point (i.e. where is (0,0)?) so the angles reference a meaningful spot on the earth.
+
+Common global datums are WGS84 and NAD83.  Datums can also be local, fit to a particular area of the globe, but ill-fitting outside the area of intended use.
+
+*Orange Peel Analogy: a datum your choice of fruit to use in the orange peel analogy.  Is the earth an orange, a lemon, a grapefruit?*
 
 ## Projection
 
