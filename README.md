@@ -17,6 +17,8 @@ It has angular units (i.e. degrees) and defines the starting point (i.e. where i
 
 Common global datums are WGS84 and NAD83.  Datums can also be local, fit to a particular area of the globe, but ill-fitting outside the area of intended use.
 
+When datums are used by themselves it's called a *Geographic Coordinate System*.
+
 *Orange Peel Analogy: a datum is your choice of fruit to use in the orange peel analogy.  Is the earth an orange, a lemon, a lime, a grapefruit?*
 
 ![Citrus fruit on display at the market](https://farm3.staticflickr.com/2260/2508805118_500f5bba28_n.jpg)
@@ -28,6 +30,8 @@ Common global datums are WGS84 and NAD83.  Datums can also be local, fit to a pa
 A **Projection** is a mathematical transformation of the angular measurements on a round earth to a flat surface (i.e. paper or a computer screen).
 
 The units associated with a given projection can be linear (feet, meters, etc.) or angular (degrees).
+
+Many people use the term "projection" when they actually mean "coordinate reference system". (With good reason, right?  Coordinate References System is long and might make you sound pretentious.)  One example is the title of this workshop... but you wouldn't know what it was about if I said it was a workshop on "Coordinate Reference Systems in R", would you?
 
 *Orange Peel Analogy: a projeciton is how you peel your orange and then flatten the peel.*
 
