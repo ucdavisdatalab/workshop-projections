@@ -1,11 +1,25 @@
 # R-Projections-Workshop
 A workshop on understanding and using projections for spatial data in R
 
+## Expected Outcomes
+
+The expected outcome of this workshop is not that you will understand everything about projections by the end of the 2 hours.  Learning and understanding projections for geospatial data is (perhaps unfortunately) a life-long endevor.  My expectation is that by the end of this workshop, you will have a better understanding of what a projection is, why you would choose one over another, and how to apply them correctly to geospatial data in R.  Will you have questions later?  Of course!  That is entirely expected.
+
+## Classroom Expectations
+
+Learning is sometimes difficult.  Projections are confusing.  As I stated early, I hope to mitigate this, but let's recognize it up front.  I have some rules for my classroom for just these kinds of situations:
+
+1. I expect you to ask questions. 
+1. I want you to ask "dumb" questions as well as "smart" questions (whatever those terms mean for you).  All questions are valid.
+1. You will not label anyone or anyone's question with the terms above.  All questions and all learning styles are valid.
+1. You may answer questions.  I highly encourage you to discuss your questions with others in the room.  Maybe you can figure it out together.  If you want more input, ask someone else.
+1. I will do my best to answer your questions, but reserve the right to say "I don't know" or "I will need to do some research and get back to you"
+1. You can and should take breaks when you need to.  Step outside, walk around, I won't be offended.  Brains need a break.  If you need to take this home and work on it later, that's fine too!
 
 
 # Coordinate Reference System (CRS)
 
-CRS = Datum + Projection + Additional Parameters
+**CRS = Datum + Projection + Additional Parameters**
 
 *A common analogy employed to teach projections is the orange peel analogy.  If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made.   We will also use it here.*
 
@@ -47,9 +61,25 @@ Additional parameters are often necessary to create the full coordinate referenc
 *Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
 
 
-# Projections
+# Notation for Coordinate Reference Systems in R
 
-Now that we've gotten a better idea of the whole system needed to visualiz geospatial data (CRS = Datum + Projection + Additional Parameters), let's focus a bit on the projection aspect of the equation.
+You have two options for identifying a CRS in most R commands.  The documentation for a command that requires projection information will tell you which is required.  Often you can choose between the two options.
+
+## EPSG Code
+
+An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy.
+
+The main advantages to using this method of specifying a projection are that it is standardized and ensures you have the same parameters every time.  The disadvantage is that if you need to know the parameters used by the projection or it's name, you have to look them up, but that's fairly easy to to at [spatialreference.org](http://spatialreference.org/ref/epsg/).  Also, you can't customize the parameters if you use an EPSG code.  For example: `EPSG:27561`
+
+*A note on linguistics:* EPSG stands for "European Petroleum Survey Group"... but everyone just says EPSG.
+
+## PROJ.4 String
+
+PROJ.4 is an open source library for defining and converting between coordinate reference systems.  It defines a standard way to write projection parameters.  For example: `+proj=lcc +lat_1=49.5 +lat_0=49.5 +lon_0=0 +k_0=0.999877341 +x_0=6 +y_0=2 +a=6378249.2 +b=6356515 +towgs84=-168,-60,320,0,0,0,0 +pm=paris +units=m +no_defs`
+
+Two important advantages to using this option are (1) the parameters are human-readable and immediately transparent and (2) the strings are easily customized.  The main disadvantage to this option is that it's easy to make a mistake when you reproduce the string, accidentally changing parameters.
+
+*A note on linguistics:* PROJ.4 is commonly pronounced "prodge four" ("PROJ" rhymes with "dodge"); PROJ is short for "projection".  The 4 is because we're currently using the 4th version of this library.
 
 
 
