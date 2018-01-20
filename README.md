@@ -12,7 +12,7 @@ Learning is sometimes difficult.  Projections are confusing.  As I stated early,
 1. I expect you to ask questions. 
 1. I want you to ask "dumb" questions as well as "smart" questions (whatever those terms mean for you).  All questions are valid.
 1. You may answer questions.  I highly encourage you to discuss your questions with others in the room.  Maybe you can figure it out together.  If you want more input, ask someone else.
-1. I will do my best to answer your questions, but reserve the right to say "I don't know" or "I will need to do some research and get back to you".  One person can't know everything.
+1. I will do my best to answer your questions, but reserve the right to say "I don't know" or "I will need to do some research and get back to you" or ask the people in the room if they know the answer.  One person can't know everything.
 1. You can and should take breaks when you need to.  Step outside, walk around, I won't be offended.  Brains need a break.  If you need to take this home and work on it later, that's fine too!
 
 
