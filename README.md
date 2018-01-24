@@ -205,13 +205,18 @@ plot(ws.streams, col="#3182bd", lwd=1.75, add=TRUE)
 plot(ws.points, col="black", pch=20, cex=3, add=TRUE)
 plot(ws.polygons, lwd=2, border="grey35", add=TRUE)
 ```
-Som explanation of the code above for plotting the spatial data:
+Some explanation of the code above for plotting the spatial data:
 * xlim/ylim sets the extent.  Here I used the numbers from the bounding box of the polygon dataset, but you could put in numbers - remember that this is projected data so lat/long won't work
 * add=TRUE makes the 2nd, 3rd, 4th, etc. datasets plot on the same map as the first dataset you plot - order matters
 * col sets the fill color for the geometry
 * border sets the outline color (or stroke for users of vector graphics programs)
 * bg sets the background color for the plot
 * colors can be specified with words like "gray" or html hex codes like #dff9fd
+
+# Conclusion
+After completing this workshop, you should now have a better understanding of Coordinate Reference Systems (CRS) or projections, as they are often called colloquially.  You can now find out what the CRS is for a dataset and know the common formats this can take.  You should understand the difference between defining a CRS and tranforming a dataset (often called "reprojecting" in other GIS programs), when to use them, and how to execute both commands.  You've also seen how to use the basic plot() function to make a map.
+
+Do you now feel like you know everything you need to know and will **never** have any more questions?  Of course not!  It's a learning process that will continue for the rest of your career working with spatial data.  Need more help?  See data.ucdavis.edu for how to contact your friendly UC Davis GIS Data Curator.
 
 
 ---------------------------------------
