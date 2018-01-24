@@ -36,7 +36,7 @@ When datums are used by themselves it's called a *Geographic Coordinate System*.
 
 ![Citrus fruit on display at the market](https://farm3.staticflickr.com/2260/2508805118_500f5bba28_n.jpg)
 
-
+Comments from the pros: Datums matter! California Albers with NAD27 is **NOT** the same as California Albers with NAD83.
 
 ## Projection
 
@@ -60,13 +60,13 @@ To decide if a projection is right for your data, answer these questions:
 
 The [Department of Geo-Information Processing](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html) has a good discussion of these aspects of projections.  Online tools like [Projection Wizard](http://projectionwizard.org/) can also help you discover projections that might be a good fit for your data.
 
+Comments from the pros: Take the time to figure identify a projection that is suited for your project.  You don't have to stick to the ones that are popular.
+
 ## Additional Parameters
 
 Additional parameters are often necessary to create the full coordinate reference system.  For example, one common additional parameter is a definition of the center of the map.  The number of required additional parameters depends on what is needed by each specific projection.
 
 *Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
-
-
 
 
 # Notation for Coordinate Reference Systems in R
@@ -215,6 +215,8 @@ Some explanation of the code above for plotting the spatial data:
 
 # Conclusion
 After completing this workshop, you should now have a better understanding of Coordinate Reference Systems (CRS) or projections, as they are often called colloquially.  You can now find out what the CRS is for a dataset and know the common formats this can take.  You should understand the difference between defining a CRS and tranforming a dataset (often called "reprojecting" in other GIS programs), when to use them, and how to execute both commands.  You've also seen how to use the basic plot() function to make a map.
+
+Now that you've had some hands-on experience with projections and spatial data, it's a good time to go back an review the concepts introduced in the beginning of the workshop.  You may find that some of it makes more sense now that you have more experience.
 
 Do you now feel like you know everything you need to know and will **never** have any more questions?  Of course not!  It's a learning process that will continue for the rest of your career working with spatial data.  Need more help?  See data.ucdavis.edu for how to contact your friendly UC Davis GIS Data Curator.
 
