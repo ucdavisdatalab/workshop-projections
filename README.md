@@ -95,6 +95,124 @@ Two important advantages to using this option are (1) the parameters are human-r
 # Hands-On Tutorial
 
 
+## Load the libraries we'll need.
+TIP: I add to this section as I write my code and need new libraries. Keep them in one place for easy reference.
+
+```
+library(raster)
+library(geojsonio)
+library(rgdal)
+```
+
+## Set your working directory to the folder where you saved your data
+TIP: Windows users, use \\ instead of \ or switch the direction of the slashes to /... it has to do with escape characters.
+
+```
+setwd("C:\\Users\\mmtobias\\Documents\\Presentations\\Projections in R\\Data")
+```
+
+## Read the data into our R session
+"ws" stands for "watershed"... "points" by itself is a command so we don't want confusion
+Our data is in geojson format so we need a command that reads that format
+Use the command ?geojson_read in your console to see the documentation for the geojson_read function
+the Raster package has commands to read in other file types like rasters but also vectors like shapefiles
+
+```
+ws.points<-geojson_read("WBDHU8_Points_SF.geojson", what="sp")
+ws.polygons<-geojson_read("WBDHU8_SF.geojson", what="sp")
+```
+
+The streams data is a shapefile, so we'll load it with a different command
+
+```
+ws.streams<-shapefile("flowlines.shp")
+```
+
+Let's look at one of the files
+
+```
+ws.polygons
+```
+
+Note that the "coord. ref." (coordinate reference system... CRS) string is a PROJ.4 string. "+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs "
+
+
+## Indentifying the Assigned CRS
+To see just the coordinate reference system, we can use the crs() command.
+Let's check the CRS for each of our files:
+
+```
+crs(ws.points)
+crs(ws.polygons)
+crs(ws.streams)
+```
+
+It looks like the streams dataset is missing a CRS.
+
+## Defining a CRS
+Let's be clear that the streams data *has* a CRS, but the computer doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *should* be and tell the computer what it should use.  How?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's what the instructor saved it as before she deleted the .prj file... shapefiles are not a great exchange format, FYI).
+
+Set the CRS:
+
+```
+crs(ws.streams)<-"+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +datum=NAD27+units=m +no_defs +ellps=clrk66 +nadgrids=@conus,@alaska,@ntv2_0.gsb,@ntv1_can.dat"
+
+#or
+
+crs(ws.streams)<-CRS("+init=epsg:3309")
+```
+
+Let's imagine we loaded up our data and find that it shows up on a map in the wrong location.  What happened?  Someone defined the CRS incorrectly.
+How do you fix it?  First you figure out what the CRS should be, then you run one of the lines above with the correct CRS definition to fix the file.
+
+## Tranforming / Reprojecting Vector Data
+We need to get all our data into the same projection so it will plot together on one map and do any kind of spatial process on the data.
+
+assign the PROJ.4 string from the other files to a variable:
+
+```
+newcrs<-crs(ws.polygons)
+```
+
+use the variable with the PROJ.4 string in spTranform() 
+
+```
+ws.streams<-spTransform(ws.streams, newcrs)
+```
+
+Let's check the CRS for each of our files again:
+
+```
+crs(ws.points)
+crs(ws.polygons)
+crs(ws.streams)
+```
+Now they all should match.
+
+## Plotting the Data
+Lets make a map now that all our data is in the same projection.
+
+Load up the CA Counties layer to use as reference in a map:
+
+```
+ca.counties<-geojson_read("CA_Counties.geojson", what="sp")
+```
+
+Let's plot all the data together:
+```
+plot(ca.counties, col="#FFFDEA", border="gray", xlim=bbox(ws.polygons)[1:2], ylim=bbox(ws.polygons)[3:4], bg="#dff9fd",  main = "Perennial Streams in the San Francisco Bay Watersheds")
+plot(ws.streams, col="#3182bd", lwd=1.75, add=TRUE)
+plot(ws.points, col="black", pch=20, cex=3, add=TRUE)
+plot(ws.polygons, lwd=2, border="grey35", add=TRUE)
+```
+Som explanation of the code above for plotting the spatial data:
+* xlim/ylim sets the extent.  Here I used the numbers from the bounding box of the polygon dataset, but you could put in numbers - remember that this is projected data so lat/long won't work
+* add=TRUE makes the 2nd, 3rd, 4th, etc. datasets plot on the same map as the first dataset you plot - order matters
+* col sets the fill color for the geometry
+* border sets the outline color (or stroke for users of vector graphics programs)
+* bg sets the background color for the plot
+* colors can be specified with words like "gray" or html hex codes like #dff9fd
+
 
 ---------------------------------------
 # Resources Used to Compile this Tutorial:
