@@ -94,6 +94,10 @@ Two important advantages to using this option are (1) the parameters are human-r
 ---------------------------------------
 # Hands-On Tutorial
 
+## Download the data
+
+The data for this workshop is available in the [data folder](https://github.com/MicheleTobias/R-Projections-Workshop/Data) in this repository, or you can [download a .zip file from FigShare](https://figshare.com/s/f68e06c4177e27d0aa47).
+
 
 ## Load the libraries we'll need.
 TIP: I add to this section as I write my code and need new libraries. Keep them in one place for easy reference.
