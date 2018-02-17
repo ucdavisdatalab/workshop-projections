@@ -52,21 +52,22 @@ Many people use the term "projection" when they actually mean "coordinate refere
 
 Image source: http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/
 
-### Which CRS/projection should I use?
-
-To decide if a projection is right for your data, answer these questions: 
-1. What is the area of minimal distortion?
-2. What aspect of the data does it preserve?
-
-The [Department of Geo-Information Processing](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html) has a good discussion of these aspects of projections.  Online tools like [Projection Wizard](http://projectionwizard.org/) can also help you discover projections that might be a good fit for your data.
-
-Comments from the pros: Take the time to figure identify a projection that is suited for your project.  You don't have to stick to the ones that are popular.
 
 ## Additional Parameters
 
 Additional parameters are often necessary to create the full coordinate reference system.  For example, one common additional parameter is a definition of the center of the map.  The number of required additional parameters depends on what is needed by each specific projection.
 
 *Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
+
+## Which CRS/projection should I use?
+
+To decide if a projection is right for your data, answer these questions: 
+1. What is the area of minimal distortion?
+2. What aspect of the data does it preserve?
+
+[University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html) and the [Department of Geo-Information Processing](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html) has a good discussion of these aspects of projections.  Online tools like [Projection Wizard](http://projectionwizard.org/) can also help you discover projections that might be a good fit for your data.
+
+Comments from the pros: Take the time to figure identify a projection that is suited for your project.  You don't have to stick to the ones that are popular.
 
 
 # Notation for Coordinate Reference Systems in R
