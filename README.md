@@ -121,27 +121,27 @@ library(rgdal)
 TIP: Windows users, use \\ instead of \ or switch the direction of the slashes to /... it has to do with escape characters.
 
 ```
-setwd("C:\\Users\\mmtobias\\Documents\\Presentations\\Projections in R\\Data")
+setwd("C:\\Workshops\\Data")
 ```
+Replace C:\\Workshops\\Data with the path to the folder in which you saved your data.
 
 ## Read the data into our R session
-"ws" stands for "watershed"... "points" by itself is a command so we don't want confusion
-Our data is in geojson format so we need a command that reads that format
-Use the command ?geojson_read in your console to see the documentation for the geojson_read function
-the Raster package has commands to read in other file types like rasters but also vectors like shapefiles
+Because "points" by itself is a command so we don't want confusion, I've added "ws." (WS for watershed) to the front of my variables.
+
+Our data is in geojson format so we need a command that reads that format.  Use the command ```?geojson_read``` in your console to see the documentation for the geojson_read function.  
 
 ```
 ws.points<-geojson_read("WBDHU8_Points_SF.geojson", what="sp")
 ws.polygons<-geojson_read("WBDHU8_SF.geojson", what="sp")
 ```
 
-The streams data is a shapefile, so we'll load it with a different command
+The streams data is a shapefile, so we'll load it with a different command than we used for our points and polygons.  The Raster package has commands to read in other file types like rasters but also vectors like shapefiles.
 
 ```
 ws.streams<-shapefile("flowlines.shp")
 ```
 
-Let's look at one of the files
+Let's look at one of the files:
 
 ```
 ws.polygons
@@ -170,7 +170,7 @@ Set the CRS:
 ```
 crs(ws.streams)<-"+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +datum=NAD27+units=m +no_defs +ellps=clrk66 +nadgrids=@conus,@alaska,@ntv2_0.gsb,@ntv1_can.dat"
 
-#or
+# or
 
 crs(ws.streams)<-CRS("+init=epsg:3309")
 ```
@@ -179,15 +179,15 @@ Let's imagine we loaded up our data and find that it shows up on a map in the wr
 How do you fix it?  First you figure out what the CRS should be, then you run one of the lines above with the correct CRS definition to fix the file.
 
 ## Tranforming / Reprojecting Vector Data
-We need to get all our data into the same projection so it will plot together on one map and do any kind of spatial process on the data.
+We need to get all our data into the same projection so it will plot together on one map before we can do any kind of spatial process on the data.
 
-assign the PROJ.4 string from the other files to a variable:
+Assign the PROJ.4 string from the other files to a variable:
 
 ```
 newcrs<-crs(ws.polygons)
 ```
 
-use the variable with the PROJ.4 string in spTranform() 
+use the variable containing the CRS we want to use with the PROJ.4 string in spTranform() 
 
 ```
 ws.streams<-spTransform(ws.streams, newcrs)
@@ -203,7 +203,7 @@ crs(ws.streams)
 Now they all should match.
 
 ## Plotting the Data
-Lets make a map now that all our data is in the same projection.
+Lets make a map now that all our data is in the same projection.  What if we had tried to do this earlier before we fixed out projection definitions and transformed the files into the same projections?
 
 Load up the CA Counties layer to use as reference in a map:
 
@@ -219,11 +219,11 @@ plot(ws.points, col="black", pch=20, cex=3, add=TRUE)
 plot(ws.polygons, lwd=2, border="grey35", add=TRUE)
 ```
 Some explanation of the code above for plotting the spatial data:
-* xlim/ylim sets the extent.  Here I used the numbers from the bounding box of the polygon dataset, but you could put in numbers - remember that this is projected data so lat/long won't work
-* add=TRUE makes the 2nd, 3rd, 4th, etc. datasets plot on the same map as the first dataset you plot - order matters
-* col sets the fill color for the geometry
-* border sets the outline color (or stroke for users of vector graphics programs)
-* bg sets the background color for the plot
+* ```xlim/ylim``` sets the extent.  Here I used the numbers from the bounding box of the polygon dataset, but you could put in numbers - remember that this is projected data so lat/long won't work
+* ```add=TRUE``` makes the 2nd, 3rd, 4th, etc. datasets plot on the same map as the first dataset you plot - order matters
+* ```col``` sets the fill color for the geometry
+* ```border``` sets the outline color (or stroke for users of vector graphics programs)
+* ```bg``` sets the background color for the plot
 * colors can be specified with words like "gray" or html hex codes like #dff9fd
 
 # Conclusion
