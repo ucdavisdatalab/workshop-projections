@@ -90,15 +90,23 @@ Two important advantages to using this option are (1) the parameters are human-r
 
 *A note on linguistics:* PROJ.4 is commonly pronounced "prodge four" ("PROJ" rhymes with "dodge"); PROJ is short for "projection".  The 4 is because we're currently using the 4th version of this library.
 
+# The BIGGEST Mistake
+The #1 biggest mistake I see in any GIS (ArcMap, QGIS, R, GRASS, Python, etc.) is defining a projection for a dataset when the person should have re-projected the data.  It is very common that you'll need to tell your GIS what the projection/CRS of your data should be.  In these cases, the GIS needs to know what the projection/CRS **currently** is, not what you would like it to be.  If you need to change a projection, you need to go through a different process, often called Re-project or Transform.
+
 
 
 ---------------------------------------
 # Hands-On Tutorial
+Finally, now we're going to work in R to get some hands-on practice with the concepts we just discussed.
+
+We'll be working with sp objects today, but you should also know that there are sf objects as well.  [Roger Bivand's review of spatial data for R](https://cran.r-project.org/web/views/Spatial.html) is helpful for understading the options for working with spatial data.
 
 ## Download the data
 
 The data for this workshop is available in the [data folder](https://github.com/MicheleTobias/R-Projections-Workshop/tree/master/Data) in this repository, or you can [download a .zip file from FigShare](https://figshare.com/s/f68e06c4177e27d0aa47).
 
+## Start R
+Pick the R flavor of your choice - regular R, R Studio, etc. - and start it up.  You can either add the commands we'll be using to a script file to run, or you can just run the lines individually in your console to see how they work.  It's up to you.
 
 ## Load the libraries we'll need.
 TIP: I add to this section as I write my code and need new libraries. Keep them in one place for easy reference.
