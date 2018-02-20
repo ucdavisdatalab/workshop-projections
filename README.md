@@ -118,7 +118,7 @@ library(rgdal)
 ```
 
 ## Set your working directory to the folder where you saved your data
-TIP: Windows users, use \\ instead of \ or switch the direction of the slashes to /... it has to do with escape characters.
+TIP: Windows users, use \\\ instead of \ or switch the direction of the slashes to /... it has to do with escape characters.
 
 ```
 setwd("C:\\Workshops\\Data")
