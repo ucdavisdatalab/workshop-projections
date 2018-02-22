@@ -76,11 +76,11 @@ You have two options for identifying a CRS in most R commands.  The documentatio
 
 ## EPSG Code
 
-An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy.
+*A note on linguistics:* EPSG stands for "European Petroleum Survey Group"... but everyone just says EPSG.
+
+An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy.  An EPSG Code is also called an SRID (Spatial Reference Identifier).  Technically, EPSG is the authority that assigns SRIDs, but you will hear these terms used interchangibly.
 
 The main advantages to using this method of specifying a projection are that it is standardized and ensures you have the same parameters every time.  The disadvantage is that if you need to know the parameters used by the projection or it's name, you have to look them up, but that's fairly easy to to at [spatialreference.org](http://spatialreference.org/ref/epsg/).  Also, you can't customize the parameters if you use an EPSG code.  For example: `EPSG:27561`
-
-*A note on linguistics:* EPSG stands for "European Petroleum Survey Group"... but everyone just says EPSG.
 
 ## PROJ.4 String
 
