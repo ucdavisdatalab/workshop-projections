@@ -36,7 +36,7 @@ When datums are used by themselves it's called a *Geographic Coordinate System*.
 
 ![Citrus fruit on display at the market](https://farm3.staticflickr.com/2260/2508805118_500f5bba28_n.jpg)
 
-Comments from the pros: Datums matter! California Albers with NAD27 is **NOT** the same as California Albers with NAD83.
+Comments from the pros: Datums matter! California Albers with NAD27 is **NOT** the same as California Albers with NAD83.  See all of the advice [here](https://twitter.com/MicheleTobias/status/955861280174174208)
 
 ## Projection
 
