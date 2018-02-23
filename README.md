@@ -42,7 +42,7 @@ Comments from the pros: Datums matter! California Albers with NAD27 is **NOT** t
 
 A **Projection** is a mathematical transformation of the angular measurements on a round earth to a flat surface (i.e. paper or a computer screen).
 
-The units associated with a given projection can be linear (feet, meters, etc.) or angular (degrees).
+The units associated with a given projection are usually linear (feet, meters, etc.).
 
 Many people use the term "projection" when they actually mean "coordinate reference system". (With good reason, right?  Coordinate References System is long and might make you sound pretentious.)  One example is the title of this workshop... but you wouldn't know what it was about if I said it was a workshop on "Coordinate Reference Systems in R", would you?
 
