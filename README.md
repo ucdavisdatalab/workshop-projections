@@ -242,6 +242,7 @@ Do you now feel like you know everything you need to know and will **never** hav
 1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
 1. [International Institute for Geo-Information Science and Earth Observation (ITC)](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html)
 1. [Carlos Furuti's Projections Page](http://www.progonos.com/furuti/MapProj/Normal/TOC/cartTOC.html)
+1. [ESRI Resource Center - Projections](http://help.arcgis.com/en/geodatabase/10.0/sdk/arcsde/concepts/geometry/coordref/coordsys/projected/mapprojections.htm#:~:text=False%20easting%20is%20a%20linear,origin%20of%20the%20y%20coordinates.&text=For%20example%2C%20if%20you%20know,a%20false%20northing%20of%20%2D5%2C000%2C000.)
 
 Map Projection Fun:
 
