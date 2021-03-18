@@ -1,5 +1,8 @@
 # R-Projections-Workshop
-A workshop on understanding and using projections for spatial data in R
+
+**This workshop is currently being revised to work with SF objects in R. The expected completion date is April 27, 2021.**
+
+This is a workshop on understanding and using projections for spatial data in R.
 
 ## Expected Outcomes
 
