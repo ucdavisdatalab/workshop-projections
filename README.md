@@ -124,33 +124,29 @@ library(rgdal)
 TIP: Windows users, use \\\ instead of \ or switch the direction of the slashes to /... it has to do with escape characters.
 
 ```
-setwd("C:\\Workshops\\Data")
+setwd("C:/Workshops/Data")
 ```
-Replace C:\\Workshops\\Data with the path to the folder in which you saved your data.
+Replace C:/Workshops/Data with the path to the folder in which you saved your data.
 
 ## Read the data into our R session
-Because "points" by itself is a command so we don't want confusion, I've added "ws." (WS for watershed) to the front of my variables.
+Because "points" by itself is a command and we don't want confusion, I've added "ws." (WS for watershed) to the front of my variable names.
 
-Our data is in geojson format so we need a command that reads that format.  Use the command ```?geojson_read``` in your console to see the documentation for the geojson_read function.  
-
-```
-ws.points<-geojson_read("WBDHU8_Points_SF.geojson", what="sp")
-ws.polygons<-geojson_read("WBDHU8_SF.geojson", what="sp")
-```
-
-The streams data is a shapefile, so we'll load it with a different command than we used for our points and polygons.  The Raster package has commands to read in other file types like rasters but also vectors like shapefiles.
+Most of the vector data formats can be read into r with the ```st_read``` function. To see the help files for this function, run ```?st_read``` in your console.
 
 ```
-ws.streams<-shapefile("flowlines.shp")
+ws.points<-st_read("data/WBDHU8_Points_SF.geojson")
+ws.polygons<-st_read("data/WBDHU8_SF.geojson")
+ws.streams<-st_read("data/flowlines.shp")
 ```
 
-Let's look at one of the files:
+
+Let's look at the contents of one of the files:
 
 ```
 ws.polygons
 ```
 
-Note that the "coord. ref." (coordinate reference system... CRS) string is a PROJ.4 string. "+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs "
+Note that the output not only shows the data but gives you some metadata as well, such as the geometry type, bounding box (bbox), and the projected CRS, which is "NAD83 / California Albers".
 
 
 ## Indentifying the Assigned CRS
@@ -158,15 +154,15 @@ To see just the coordinate reference system, we can use the crs() command.
 Let's check the CRS for each of our files:
 
 ```
-crs(ws.points)
-crs(ws.polygons)
-crs(ws.streams)
+st_crs(ws.points)
+st_crs(ws.polygons)
+st_crs(ws.streams)
 ```
 
 It looks like the streams dataset is missing a CRS.
 
 ## Defining a CRS
-Let's be clear that the streams data *has* a CRS, but the computer doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *should* be and tell the computer what it should use.  How?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's what the instructor saved it as before she deleted the .prj file... shapefiles are not a great exchange format, FYI).
+Let's be clear that the streams data *has* a CRS, but R doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *IS* and tell R which coordinate system to use.  How do you  know which CRS the data has if its not properly defined?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's what the instructor saved it as before she deleted the .prj file... shapefiles are not a great exchange format, FYI).
 
 Set the CRS:
 
@@ -240,6 +236,7 @@ Do you now feel like you know everything you need to know and will **never** hav
 ---------------------------------------
 # Resources Used to Compile this Tutorial:
 
+1. [Geocomputation with R}(https://geocompr.robinlovelace.net/) by Robin Lovelace
 1. [Rspatial.org](http://rspatial.org/spatial/rst/6-crs.html)
 1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
 1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
