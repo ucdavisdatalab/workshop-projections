@@ -229,6 +229,48 @@ Some explanation of the code above for plotting the spatial data:
 * ```bg``` sets the background color for the plot
 * colors can be specified with words like "gray" or html hex codes like #dff9fd
 
+# Raster Data
+
+We've just looked at how to work with the CRS of vector data. Now let's look at raster data.
+
+First, we need to install the package that works with raster data. Today we'll use *terra* but there are other packages like *raster* that also work in similar ways.
+
+```
+install.packages("terra")
+library(terra)
+```
+Now we'll load our data. This is a digital elevation model (DEM) of the City of San Francisco.
+
+```
+dem<-rast(x="data/DEM_SF.tif")
+```
+
+What is the CRS of this dataset? Note that the command to read the CRS in the *terra* package is different from *sf*.
+
+```
+crs(dem)
+```
+
+Our data came with a CRS, but in the event that we needed to define it, we would do it like this:
+
+```
+crs(dem)<-"epsg:4269"
+```
+
+So we know that our data is in the CRS with EPSG code 4269. That's not the same CRS as our other data, so we'll need to transform it. Again, *terra* uses different names than *sf* does. Is this confusing? Yes it is. This is why we read the documentation.
+
+```
+dem.3310<-project(dem, "epsg:3310")
+```
+
+Now that all of our datasets are in the same projection, we can use them together. Let's make a map with both our raster and vector data.
+
+```
+plot(dem.3310, col=terrain.colors(50), axes = FALSE, legend = FALSE)
+plot(ws.streams.3310$geometry, col="#3182bd", lwd=3, add=TRUE)
+plot(ws.polygons$geometry, lwd=1, border="grey35", add=TRUE)
+```
+
 # Conclusion
 After completing this workshop, you should now have a better understanding of Coordinate Reference Systems (CRS) or projections, as they are often called colloquially.  You can now find out what the CRS is for a dataset and know the common formats this can take.  You should understand the difference between defining a CRS and tranforming a dataset (often called "reprojecting" in other GIS programs), when to use them, and how to execute both commands.  You've also seen how to use the basic plot() function to make a map.
 
