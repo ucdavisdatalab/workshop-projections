@@ -240,7 +240,7 @@ Do you now feel like you know everything you need to know and will **never** hav
 ---------------------------------------
 # Resources Used to Compile this Tutorial:
 
-1. [Geocomputation with R}(https://geocompr.robinlovelace.net/) by Robin Lovelace
+1. [Geocomputation with R](https://geocompr.robinlovelace.net/) by Robin Lovelace
 1. [Rspatial.org](http://rspatial.org/spatial/rst/6-crs.html)
 1. [Data Carpentry Intro to Geospatial Data with R](http://www.datacarpentry.org/R-spatial-raster-vector-lesson/)
 1. [University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html)
