@@ -64,20 +64,30 @@ plot(
   main = "Perennial Streams",
   sub = "in the San Francisco Bay Watersheds"
   )
-plot(ws.streams$geometry, col="#3182bd", lwd=1.75, add=TRUE)
+plot(ws.streams.3310$geometry, col="#3182bd", lwd=1.75, add=TRUE)
 plot(ws.points$geometry, col="black", pch=20, cex=3, add=TRUE)
 plot(ws.polygons$geometry, lwd=2, border="grey35", add=TRUE)
 
 
 # Raster Data CRS ---------------------------------------------------------
+install.packages("terra")
+library(terra)
+
+#load data
+dem<-rast(x="data/DEM_SF.tif")
 
 # identify the existing CRS
+crs(dem)
 
 # define a CRS when it is missing
+crs(dem)<-"epsg:4269"
 
 # transform/reproject vector data
+dem.3310<-project(dem, "epsg:3310")
 
 # plot the data
-
+plot(dem.3310, col=terrain.colors(50), axes = FALSE, legend = FALSE)
+plot(ws.streams.3310$geometry, col="#3182bd", lwd=3, add=TRUE)
+plot(ws.polygons$geometry, lwd=1, border="grey35", add=TRUE)
 
 
