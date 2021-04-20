@@ -115,9 +115,9 @@ Pick the R flavor of your choice - regular R, R Studio, etc. - and start it up. 
 TIP: I add to this section as I write my code and need new libraries. Keep them in one place for easy reference.
 
 ```
-library(raster)
-library(geojsonio)
-library(rgdal)
+install.packages("sf")
+
+library("sf")
 ```
 
 ## Set your working directory to the folder where you saved your data
@@ -159,7 +159,7 @@ st_crs(ws.polygons)
 st_crs(ws.streams)
 ```
 
-It looks like the streams dataset is missing a CRS.
+It looks like the streams dataset does not have its CRS defined.  
 
 ## Defining a CRS
 Let's be clear that the streams data *has* a CRS, but R doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *IS* and tell R which coordinate system to use.  How do you  know which CRS the data has if its not properly defined?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's what the instructor saved it as before she deleted the .prj file... shapefiles are not a great exchange format, FYI).
@@ -167,12 +167,11 @@ Let's be clear that the streams data *has* a CRS, but R doesn't know what it sho
 Set the CRS:
 
 ```
-crs(ws.streams)<-"+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +datum=NAD27+units=m +no_defs +ellps=clrk66 +nadgrids=@conus,@alaska,@ntv2_0.gsb,@ntv1_can.dat"
+ws.streams.3309<-st_set_crs(ws.streams, value=3309) 
 
-# or
-
-crs(ws.streams)<-CRS("+init=epsg:3309")
 ```
+
+EPSG 3309 = California Albers, NAD 27
 
 Let's imagine we loaded up our data and find that it shows up on a map in the wrong location.  What happened?  Someone defined the CRS incorrectly.
 How do you fix it?  First you figure out what the CRS should be, then you run one of the lines above with the correct CRS definition to fix the file.
@@ -180,24 +179,20 @@ How do you fix it?  First you figure out what the CRS should be, then you run on
 ## Tranforming / Reprojecting Vector Data
 We need to get all our data into the same projection so it will plot together on one map before we can do any kind of spatial process on the data.
 
-Assign the PROJ.4 string from the other files to a variable:
-
 ```
-newcrs<-crs(ws.polygons)
-```
+# tranform/reproject vector data
+ws.streams.3310<-st_transform(ws.streams.3309, crs=3310)
 
-use the variable containing the CRS we want to use with the PROJ.4 string in spTranform() 
-
-```
-ws.streams<-spTransform(ws.streams, newcrs)
+#   another option: match the CRS of the polygons data
+ws.streams.3310<-st_transform(ws.streams.3309, crs=st_crs(ws.polygons))
 ```
 
 Let's check the CRS for each of our files again:
 
 ```
-crs(ws.points)
-crs(ws.polygons)
-crs(ws.streams)
+st_crs(ws.points)
+st_crs(ws.polygons)
+st_crs(ws.streams)
 ```
 Now they all should match.
 
@@ -207,15 +202,24 @@ Lets make a map now that all our data is in the same projection.  What if we had
 Load up the CA Counties layer to use as reference in a map:
 
 ```
-ca.counties<-geojson_read("CA_Counties.geojson", what="sp")
+ca.counties<-st_read("data/CA_Counties.geojson")
 ```
 
 Let's plot all the data together:
 ```
-plot(ca.counties, col="#FFFDEA", border="gray", xlim=bbox(ws.polygons)[1:2], ylim=bbox(ws.polygons)[3:4], bg="#dff9fd",  main = "Perennial Streams in the San Francisco Bay Watersheds")
-plot(ws.streams, col="#3182bd", lwd=1.75, add=TRUE)
-plot(ws.points, col="black", pch=20, cex=3, add=TRUE)
-plot(ws.polygons, lwd=2, border="grey35", add=TRUE)
+plot(
+  ca.counties$geometry, 
+  col="#FFFDEA", 
+  border="gray", 
+  xlim=st_bbox(ws.polygons)[1:2], 
+  ylim=st_bbox(ws.polygons)[3:4], 
+  bg="#dff9fd",  
+  main = "Perennial Streams",
+  sub = "in the San Francisco Bay Watersheds"
+  )
+plot(ws.streams$geometry, col="#3182bd", lwd=1.75, add=TRUE)
+plot(ws.points$geometry, col="black", pch=20, cex=3, add=TRUE)
+plot(ws.polygons$geometry, lwd=2, border="grey35", add=TRUE)
 ```
 Some explanation of the code above for plotting the spatial data:
 * ```xlim/ylim``` sets the extent.  Here I used the numbers from the bounding box of the polygon dataset, but you could put in numbers - remember that this is projected data so lat/long won't work
