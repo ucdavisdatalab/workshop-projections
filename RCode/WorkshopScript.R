@@ -44,10 +44,29 @@ ws.streams.3310<-st_transform(ws.streams.3309, crs=3310)
 #   another option: match the CRS of the polygons data
 ws.streams.3310<-st_transform(ws.streams.3309, crs=st_crs(ws.polygons))
 
+# check the CRS again:
+st_crs(ws.points)
+st_crs(ws.polygons)
+st_crs(ws.streams.3310)
+
+#Load up the CA Counties layer to use as reference in a map:
+
+ca.counties<-st_read("data/CA_Counties.geojson")
+
 # plot the data
-plot(ws.polygons$geometry)
-plot(ws.streams.3310$geometry, add=TRUE, col="dark blue")
-plot(ws.points$geometry, add=TRUE, pch=19, col="orange")
+plot(
+  ca.counties$geometry, 
+  col="#FFFDEA", 
+  border="gray", 
+  xlim=st_bbox(ws.polygons)[1:2], 
+  ylim=st_bbox(ws.polygons)[3:4], 
+  bg="#dff9fd",  
+  main = "Perennial Streams",
+  sub = "in the San Francisco Bay Watersheds"
+  )
+plot(ws.streams$geometry, col="#3182bd", lwd=1.75, add=TRUE)
+plot(ws.points$geometry, col="black", pch=20, cex=3, add=TRUE)
+plot(ws.polygons$geometry, lwd=2, border="grey35", add=TRUE)
 
 
 # Raster Data CRS ---------------------------------------------------------
@@ -56,7 +75,7 @@ plot(ws.points$geometry, add=TRUE, pch=19, col="orange")
 
 # define a CRS when it is missing
 
-# tranform/reproject vector data
+# transform/reproject vector data
 
 # plot the data
 
