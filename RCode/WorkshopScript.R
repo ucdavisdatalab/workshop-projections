@@ -34,10 +34,20 @@ st_crs(ws.streams) #this file doesn't have a CRS defined, but it has a CRS
 
 # define a CRS when it is missing
 
+#   Set the CRS using an EPSG code
+ws.streams.3309<-st_set_crs(ws.streams, value=3309) #3309 = California Albers, NAD 27
+
+
 # tranform/reproject vector data
+ws.streams.3310<-st_transform(ws.streams.3309, crs=3310)
+
+#   another option: match the CRS of the polygons data
+ws.streams.3310<-st_transform(ws.streams.3309, crs=st_crs(ws.polygons))
 
 # plot the data
-
+plot(ws.polygons$geometry)
+plot(ws.streams.3310$geometry, add=TRUE, col="dark blue")
+plot(ws.points$geometry, add=TRUE, pch=19, col="orange")
 
 
 # Raster Data CRS ---------------------------------------------------------
