@@ -1,0 +1,6 @@
+# Conclusion
+After completing this workshop, you should now have a better understanding of Coordinate Reference Systems (CRS) or projections, as they are often called colloquially.  You can now find out what the CRS is for a dataset and know the common formats this can take.  You should understand the difference between defining a CRS and transforming a dataset (often called "reprojecting" in other GIS programs), when to use them, and how to execute both commands.  You've also seen how to use the basic plot() function to make a map.
+
+Now that you've had some hands-on experience with projections and spatial data, it's a good time to go back an review the concepts introduced in the beginning of the workshop.  You may find that some of it makes more sense now that you have more experience.
+
+Do you now feel like you know everything you need to know and will **never** have any more questions?  Of course not!  It's a learning process that will continue for the rest of your career working with spatial data.  Need more help?  See datalab.ucdavis.edu for our Office Hours schedule.
