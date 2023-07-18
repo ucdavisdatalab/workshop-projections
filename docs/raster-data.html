@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Coordinate Reference Systems</title>
-  <meta name="description" content="Coordinate Reference Systems" />
+  <title>3 Raster Data | Coordinate Reference Systems</title>
+  <meta name="description" content="3 Raster Data | Coordinate Reference Systems" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Coordinate Reference Systems" />
+  <meta property="og:title" content="3 Raster Data | Coordinate Reference Systems" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="ucdavisdatalab/workshop-projections" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Coordinate Reference Systems" />
+  <meta name="twitter:title" content="3 Raster Data | Coordinate Reference Systems" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="coordinate-reference-system-crs.html"/>
+<link rel="prev" href="hands-on-tutorial.html"/>
+<link rel="next" href="conclusion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,45 +135,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Coordinate Reference Systems</h1>
-<p class="author"><em>Michele Tobias</em></p>
-<p class="date"><em>2023-07-18</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="workshop-description" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Workshop Description<a href="index.html#workshop-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This workshop is a lesson on coordinate reference systems, an integral part of working with spatial data.</p>
-</div>
-<div id="learning-objectives" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Learning Objectives<a href="index.html#learning-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The expected outcome of this workshop is <strong>not</strong> that you will understand everything about projections by the end of the 2 hours. Learning and understanding projections for geospatial data is (perhaps unfortunately) a life-long endeavor. Will you have questions later? Of course! That is entirely expected.</p>
-<p>By the end of this workshop, learners will</p>
-<ul>
-<li>Be able to define what a projection is</li>
-<li>Understand why you would choose one over another</li>
-<li>Be able to apply a projected coordinate system correctly to geospatial data in a coding environment</li>
-</ul>
-</div>
-<div id="prerequisites" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Prerequisites<a href="index.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Participants should have</p>
-<ol style="list-style-type: decimal">
-<li>A basic understanding of how to program in the language used in the workshop (either R or Python).</li>
-<li>A basic understanding of spatial data formats, raster and vector data in particular.</li>
-</ol>
-<p>Participants needing to learn or brush up on their relevant skills can find materials on <a href="https://ucdavisdatalab.github.io/workshop_index/">DataLab’s Workshop Index</a>.</p>
-
-</div>
+<div id="raster-data" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Raster Data<a href="raster-data.html#raster-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We’ve just looked at how to work with the CRS of vector data. Now let’s look at raster data.</p>
+<p>First, we need to install the package that works with raster data. Today we’ll use <em>terra</em> but there are other packages like <em>raster</em> that also work in similar ways.</p>
+<pre><code>install.packages(&quot;terra&quot;)
+library(terra)</code></pre>
+<p>Now we’ll load our data. This is a digital elevation model (DEM) of the City of San Francisco.</p>
+<pre><code>dem&lt;-rast(x=&quot;data/DEM_SF.tif&quot;)</code></pre>
+<p>What is the CRS of this dataset? Note that the command to read the CRS in the <em>terra</em> package is different from <em>sf</em>.</p>
+<pre><code>crs(dem)</code></pre>
+<p>Our data came with a CRS, but in the event that we needed to define it, we would do it like this:</p>
+<pre><code>crs(dem)&lt;-&quot;epsg:4269&quot;</code></pre>
+<p>So we know that our data is in the CRS with EPSG code 4269. That’s not the same CRS as our other data, so we’ll need to transform it. Again, <em>terra</em> uses different names than <em>sf</em> does. Is this confusing? Yes it is. This is why we read the documentation.</p>
+<pre><code>dem.3310&lt;-project(dem, &quot;epsg:3310&quot;)</code></pre>
+<p>Now that all of our datasets are in the same projection, we can use them together. Let’s make a map with both our raster and vector data.</p>
+<pre><code>plot(dem.3310, col=terrain.colors(50), axes = FALSE, legend = FALSE)
+plot(ws.streams.3310$geometry, col=&quot;#3182bd&quot;, lwd=3, add=TRUE)
+plot(ws.polygons$geometry, lwd=1, border=&quot;grey35&quot;, add=TRUE)</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="coordinate-reference-system-crs.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hands-on-tutorial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -194,7 +181,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ucdavisdatalab/YOUR_REPO/edit/master/index.Rmd",
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/edit/master/02_r-examples.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -202,7 +189,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ucdavisdatalab/YOUR_REPO/blob/master/index.Rmd",
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/blob/master/02_r-examples.Rmd",
 "text": null
 },
 "download": null,
