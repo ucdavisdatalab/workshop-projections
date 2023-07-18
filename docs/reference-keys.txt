@@ -1,0 +1,14 @@
+r-projections-workshop
+expected-outcomes
+classroom-expectations
+coordinate-reference-system-crs
+datum
+projection
+additional-parameters
+which-crsprojection-should-i-use
+notation-for-coordinate-reference-systems-in-r
+epsg-code
+proj.4-string
+the-biggest-mistake
+resources-used-to-compile-this-tutorial
+assessment

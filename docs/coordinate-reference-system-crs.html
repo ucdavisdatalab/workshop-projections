@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Coordinate Reference System (CRS) | YOUR WORKSHOP TITLE</title>
+  <meta name="description" content="2 Coordinate Reference System (CRS) | YOUR WORKSHOP TITLE" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Coordinate Reference System (CRS) | YOUR WORKSHOP TITLE" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="ucdavisdatalab/YOUR_REPO" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Coordinate Reference System (CRS) | YOUR WORKSHOP TITLE" />
+  
+  
+  
+
+<meta name="author" content="YOUR NAME" />
+
+
+<meta name="date" content="2023-07-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-projections-workshop.html"/>
+<link rel="next" href="notation-for-coordinate-reference-systems-in-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://datalab.ucdavis.edu/">
+  <img src="https://datalab.ucdavis.edu/wp-content/uploads/2019/07/datalab-logo-full-color-rgb-1.png" style="height: 100%; width: 100%; object-fit: contain" />
+</a></li>
+<li><a href="./" style="font-size: 18px">YOUR WORKSHOP TITLE</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html"><i class="fa fa-check"></i><b>1</b> R-Projections-Workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html#expected-outcomes"><i class="fa fa-check"></i><b>1.1</b> Expected Outcomes</a></li>
+<li class="chapter" data-level="1.2" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html#classroom-expectations"><i class="fa fa-check"></i><b>1.2</b> Classroom Expectations</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html"><i class="fa fa-check"></i><b>2</b> Coordinate Reference System (CRS)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#datum"><i class="fa fa-check"></i><b>2.1</b> Datum</a></li>
+<li class="chapter" data-level="2.2" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#projection"><i class="fa fa-check"></i><b>2.2</b> Projection</a></li>
+<li class="chapter" data-level="2.3" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#additional-parameters"><i class="fa fa-check"></i><b>2.3</b> Additional Parameters</a></li>
+<li class="chapter" data-level="2.4" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#which-crsprojection-should-i-use"><i class="fa fa-check"></i><b>2.4</b> Which CRS/projection should I use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html"><i class="fa fa-check"></i><b>3</b> Notation for Coordinate Reference Systems in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html#epsg-code"><i class="fa fa-check"></i><b>3.1</b> EPSG Code</a></li>
+<li class="chapter" data-level="3.2" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html#proj.4-string"><i class="fa fa-check"></i><b>3.2</b> PROJ.4 String</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-biggest-mistake.html"><a href="the-biggest-mistake.html"><i class="fa fa-check"></i><b>4</b> The BIGGEST Mistake</a></li>
+<li class="chapter" data-level="5" data-path="resources-used-to-compile-this-tutorial.html"><a href="resources-used-to-compile-this-tutorial.html"><i class="fa fa-check"></i><b>5</b> Resources Used to Compile this Tutorial:</a></li>
+<li class="chapter" data-level="6" data-path="assessment.html"><a href="assessment.html"><i class="fa fa-check"></i><b>6</b> Assessment</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">YOUR WORKSHOP TITLE</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="coordinate-reference-system-crs" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Coordinate Reference System (CRS)<a href="coordinate-reference-system-crs.html#coordinate-reference-system-crs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>CRS = Datum + Projection + Additional Parameters</strong></p>
+<p><em>A common analogy employed to teach projections is the orange peel analogy. If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made. We will also use it here.</em></p>
+<div id="datum" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Datum<a href="coordinate-reference-system-crs.html#datum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>Datum</strong> is a model of the shape of the earth.</p>
+<p>It has angular units (i.e. degrees) and defines the starting point (i.e. where is (0,0)?) so the angles reference a meaningful spot on the earth.</p>
+<p>Common global datums are WGS84 and NAD83. Datums can also be local, fit to a particular area of the globe, but ill-fitting outside the area of intended use.</p>
+<p>When datums are used by themselves it’s called a <em>Geographic Coordinate System</em>.</p>
+<p><em>Orange Peel Analogy: a datum is your choice of fruit to use in the orange peel analogy. Is the earth an orange, a lemon, a lime, a grapefruit?</em></p>
+<p><img src="https://farm3.staticflickr.com/2260/2508805118_500f5bba28_n.jpg" alt="Citrus fruit on display at the market" /></p>
+<p>Comments from the pros: Datums matter! California Albers with NAD27 is <strong>NOT</strong> the same as California Albers with NAD83. See all of the advice <a href="https://twitter.com/MicheleTobias/status/955861280174174208">here</a></p>
+</div>
+<div id="projection" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Projection<a href="coordinate-reference-system-crs.html#projection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>Projection</strong> is a mathematical transformation of the angular measurements on a round earth to a flat surface (i.e. paper or a computer screen).</p>
+<p>The units associated with a given projection are usually linear (feet, meters, etc.).</p>
+<p>Many people use the term “projection” when they actually mean “coordinate reference system”. (With good reason, right? Coordinate References System is long and might make you sound pretentious.) One example is the title of this workshop… but you wouldn’t know what it was about if I said it was a workshop on “Coordinate Reference Systems in R”, would you?</p>
+<p><em>Orange Peel Analogy: a projeciton is how you peel your orange and then flatten the peel.</em></p>
+<p><img src="http://blogs.lincoln.ac.nz/gis/wp-content/uploads/sites/16/2017/03/laranjoide_1.jpg" alt="An orange peeled like a map projection" /></p>
+<p>Image source: <a href="http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/" class="uri">http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/</a></p>
+</div>
+<div id="additional-parameters" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Additional Parameters<a href="coordinate-reference-system-crs.html#additional-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Additional parameters are often necessary to create the full coordinate reference system. For example, one common additional parameter is a definition of the center of the map. The number of required additional parameters depends on what is needed by each specific projection.</p>
+<p><em>Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.</em></p>
+</div>
+<div id="which-crsprojection-should-i-use" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Which CRS/projection should I use?<a href="coordinate-reference-system-crs.html#which-crsprojection-should-i-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To decide if a projection is right for your data, answer these questions:
+1. What is the area of minimal distortion?
+2. What aspect of the data does it preserve?</p>
+<p><a href="https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html">University of Colorado’s Map Projections</a> and the <a href="http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html">Department of Geo-Information Processing</a> has a good discussion of these aspects of projections. Online tools like <a href="http://projectionwizard.org/">Projection Wizard</a> can also help you discover projections that might be a good fit for your data.</p>
+<p>Comments from the pros: Take the time to figure identify a projection that is suited for your project. You don’t have to stick to the ones that are popular.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-projections-workshop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="notation-for-coordinate-reference-systems-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/edit/master/01_r-projections.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/blob/master/01_r-projections.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 R-Projections-Workshop | YOUR WORKSHOP TITLE</title>
+  <meta name="description" content="1 R-Projections-Workshop | YOUR WORKSHOP TITLE" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 R-Projections-Workshop | YOUR WORKSHOP TITLE" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="ucdavisdatalab/YOUR_REPO" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 R-Projections-Workshop | YOUR WORKSHOP TITLE" />
+  
+  
+  
+
+<meta name="author" content="YOUR NAME" />
+
+
+<meta name="date" content="2023-07-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="coordinate-reference-system-crs.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://datalab.ucdavis.edu/">
+  <img src="https://datalab.ucdavis.edu/wp-content/uploads/2019/07/datalab-logo-full-color-rgb-1.png" style="height: 100%; width: 100%; object-fit: contain" />
+</a></li>
+<li><a href="./" style="font-size: 18px">YOUR WORKSHOP TITLE</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html"><i class="fa fa-check"></i><b>1</b> R-Projections-Workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html#expected-outcomes"><i class="fa fa-check"></i><b>1.1</b> Expected Outcomes</a></li>
+<li class="chapter" data-level="1.2" data-path="r-projections-workshop.html"><a href="r-projections-workshop.html#classroom-expectations"><i class="fa fa-check"></i><b>1.2</b> Classroom Expectations</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html"><i class="fa fa-check"></i><b>2</b> Coordinate Reference System (CRS)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#datum"><i class="fa fa-check"></i><b>2.1</b> Datum</a></li>
+<li class="chapter" data-level="2.2" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#projection"><i class="fa fa-check"></i><b>2.2</b> Projection</a></li>
+<li class="chapter" data-level="2.3" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#additional-parameters"><i class="fa fa-check"></i><b>2.3</b> Additional Parameters</a></li>
+<li class="chapter" data-level="2.4" data-path="coordinate-reference-system-crs.html"><a href="coordinate-reference-system-crs.html#which-crsprojection-should-i-use"><i class="fa fa-check"></i><b>2.4</b> Which CRS/projection should I use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html"><i class="fa fa-check"></i><b>3</b> Notation for Coordinate Reference Systems in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html#epsg-code"><i class="fa fa-check"></i><b>3.1</b> EPSG Code</a></li>
+<li class="chapter" data-level="3.2" data-path="notation-for-coordinate-reference-systems-in-r.html"><a href="notation-for-coordinate-reference-systems-in-r.html#proj.4-string"><i class="fa fa-check"></i><b>3.2</b> PROJ.4 String</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-biggest-mistake.html"><a href="the-biggest-mistake.html"><i class="fa fa-check"></i><b>4</b> The BIGGEST Mistake</a></li>
+<li class="chapter" data-level="5" data-path="resources-used-to-compile-this-tutorial.html"><a href="resources-used-to-compile-this-tutorial.html"><i class="fa fa-check"></i><b>5</b> Resources Used to Compile this Tutorial:</a></li>
+<li class="chapter" data-level="6" data-path="assessment.html"><a href="assessment.html"><i class="fa fa-check"></i><b>6</b> Assessment</a></li>
+<li class="divider"></li>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+  <img alt="CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg" style="float: right; padding-right: 10px;" />
+</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">YOUR WORKSHOP TITLE</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-projections-workshop" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> R-Projections-Workshop<a href="r-projections-workshop.html#r-projections-workshop" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This is a workshop on understanding and using projections for spatial data in R.</p>
+<div id="expected-outcomes" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Expected Outcomes<a href="r-projections-workshop.html#expected-outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The expected outcome of this workshop is not that you will understand everything about projections by the end of the 2 hours. Learning and understanding projections for geospatial data is (perhaps unfortunately) a life-long endevor. My expectation is that by the end of this workshop, you will have a better understanding of what a projection is, why you would choose one over another, and how to apply them correctly to geospatial data in R. Will you have questions later? Of course! That is entirely expected.</p>
+</div>
+<div id="classroom-expectations" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Classroom Expectations<a href="r-projections-workshop.html#classroom-expectations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Learning is sometimes difficult. Projections are confusing. As I stated early, I hope to mitigate this, but let’s recognize it up front. I have some rules for my classroom for just these kinds of situations:</p>
+<ol style="list-style-type: decimal">
+<li>I expect you to ask questions.</li>
+<li>I want you to ask “dumb” questions as well as “smart” questions (whatever those terms mean for you). All questions are valid.</li>
+<li>You may answer questions. I highly encourage you to discuss your questions with others in the room. Maybe you can figure it out together. If you want more input, ask someone else.</li>
+<li>I will do my best to answer your questions, but reserve the right to say “I don’t know” or “I will need to do some research and get back to you” or ask the people in the room if they know the answer. One person can’t know everything.</li>
+<li>You can and should take breaks when you need to. Step outside, walk around, I won’t be offended. Brains need a break. If you need to take this home and work on it later, that’s fine too!</li>
+</ol>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="coordinate-reference-system-crs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/edit/master/01_r-projections.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ucdavisdatalab/YOUR_REPO/blob/master/01_r-projections.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
