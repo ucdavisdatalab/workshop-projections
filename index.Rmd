@@ -1,10 +1,10 @@
 ---
-title: YOUR WORKSHOP TITLE
-author: [YOUR NAME]
+title: Coordinate Reference Systems
+author: [Michele Tobias]
 date: "`r Sys.Date()`"
 
-github-repo: ucdavisdatalab/YOUR_REPO
-url: "https://ucdavisdatalab.github.io/YOUR_REPO/"
+github-repo: ucdavisdatalab/workshop-projections
+url: "https://github.com/ucdavisdatalab/workshop-projections"
 
 lang: en-us
 
@@ -32,4 +32,27 @@ output:
 
 # Overview {-}
 
-YOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC
+## Workshop Description
+
+This workshop is a lesson on coordinate reference systems, an integral part of working with spatial data.
+
+
+## Learning Objectives
+
+The expected outcome of this workshop is **not** that you will understand everything about projections by the end of the 2 hours.  Learning and understanding projections for geospatial data is (perhaps unfortunately) a life-long endeavor.  Will you have questions later?  Of course!  That is entirely expected.
+
+By the end of this workshop, learners will 
+
+* Be able to define what a projection is 
+* Understand why you would choose one over another
+* Be able to apply a projected coordinate system correctly to geospatial data in a coding environment  
+
+
+## Prerequisites
+
+Participants should have 
+
+1. A basic understanding of how to program in the language used in the workshop (either R or Python). 
+2. A basic understanding of spatial data formats, raster and vector data in particular.
+
+Participants needing to learn or brush up on their relevant skills can find materials on [DataLab's Workshop Index](https://ucdavisdatalab.github.io/workshop_index/).
