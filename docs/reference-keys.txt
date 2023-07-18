@@ -1,3 +1,6 @@
+workshop-description
+learning-objectives
+prerequisites
 r-projections-workshop
 expected-outcomes
 classroom-expectations
