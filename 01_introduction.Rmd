@@ -43,7 +43,7 @@ Image source: https://kaiserscience.wordpress.com/earth-science/maps/map-project
 
 Additional parameters are often necessary to create the full coordinate reference system.  For example, one common additional parameter is a definition of the center of the map.  The number of required additional parameters depends on what is needed by each specific projection.
 
-*Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.*
+*Orange Peel Analogy: an additional parameter could include a definition of the location or orientation of the stem of the fruit.*
 
 ## Which CRS/projection should I use?
 
@@ -51,26 +51,26 @@ To decide if a projection is right for your data, answer these questions:
 1. What is the area of minimal distortion?
 2. What aspect of the data does it preserve?
 
-[University of Colorado's Map Projections](https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html) and the [Department of Geo-Information Processing](http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html) has a good discussion of these aspects of projections.  Online tools like [Projection Wizard](http://projectionwizard.org/) can also help you discover projections that might be a good fit for your data.
+[The Geographer's Craft Map Projection Overview](https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html), [CUNY Hunter College](http://www.geo.hunter.cuny.edu/~jochen/gtech201/lectures/lec6concepts/map%20coordinate%20systems/how%20to%20choose%20a%20projection.htm), and [Kaiser Science](https://kaiserscience.wordpress.com/earth-science/maps/map-projections/) have good discussions of these aspects of projections.  Online tools like [Projection Wizard](http://projectionwizard.org/) can also help you discover projections that might be a good fit for your data.
 
-Comments from the pros: Take the time to figure identify a projection that is suited for your project.  You don't have to stick to the ones that are popular.
+Advice from the pros: Take the time to figure identify a projection that is suited for your project.  You don't have to stick to the ones that are popular.
 
 
 ## Notation for Coordinate Reference Systems
 
-You have two options for identifying a CRS in most tools for working with geospatial data.  The documentation for a command or function that requires projection information will tell you which is required.  Often you can choose between the two options.
+You typically have two options for identifying a CRS in most tools for working with geospatial data.  The documentation for a command or function that requires projection information will tell you which is required.  Often you can choose between the two options.
 
 ### EPSG Code
 
 *A note on linguistics:* EPSG stands for "European Petroleum Survey Group"... but everyone just says EPSG.
 
-An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy.  An EPSG Code is also called an SRID (Spatial Reference Identifier).  Technically, EPSG is the authority that assigns SRIDs, but you will hear these terms used interchangeably.
+An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy. It is a method for standardizing references to map projections.  An EPSG Code is also called an SRID (Spatial Reference Identifier).  Technically, EPSG is the authority that assigns SRIDs, but you will hear these terms used interchangeably.
 
 The main advantages to using this method of specifying a projection are that it is standardized and ensures you have the same parameters every time.  The disadvantage is that if you need to know the parameters used by the projection or it's name, you have to look them up, but that's fairly easy to to at [spatialreference.org](http://spatialreference.org/ref/epsg/).  Also, you can't customize the parameters if you use an EPSG code.  For example: `EPSG:27561`
 
 ### PROJ String
 
-PROJ is an open source library for defining and converting between coordinate reference systems.  It defines a standard way to write projection parameters.  For example: `+proj=lcc +lat_1=49.5 +lat_0=49.5 +lon_0=0 +k_0=0.999877341 +x_0=6 +y_0=2 +a=6378249.2 +b=6356515 +towgs84=-168,-60,320,0,0,0,0 +pm=paris +units=m +no_defs`
+[PROJ](https://www.osgeo.org/projects/proj/) is an open source library for defining and converting between coordinate reference systems.  It defines a standard way to write projection parameters.  For example: `+proj=lcc +lat_1=49.5 +lat_0=49.5 +lon_0=0 +k_0=0.999877341 +x_0=6 +y_0=2 +a=6378249.2 +b=6356515 +towgs84=-168,-60,320,0,0,0,0 +pm=paris +units=m +no_defs`
 
 Two important advantages to using this option are (1) the parameters are human-readable and immediately transparent and (2) the strings are easily customized.  The main disadvantage to this option is that it's easy to make a mistake when you reproduce the string, accidentally changing parameters.
 
