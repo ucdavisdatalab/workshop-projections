@@ -4,7 +4,7 @@ A coordinate reference system (CRS) is the way we translate locations measured o
 
 **CRS = Datum + Projection + Additional Parameters**
 
-*A common analogy employed to teach projections is the orange peel analogy.  If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made.   We will also use it here.*
+*A common analogy employed to teach projections is the [orange peel analogy](https://ceiengineers.com/about/news-media?id=34025/how-is-a-map-projection-like-an-orange-peel).  If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made.   We will also use it here.*
 
 ## Datum
 
@@ -32,9 +32,11 @@ Many people use the term "projection" when they actually mean "coordinate refere
 
 *Orange Peel Analogy: a projection is how you peel your orange and then flatten the peel.*
 
-![An orange peeled like a map projection](http://blogs.lincoln.ac.nz/gis/wp-content/uploads/sites/16/2017/03/laranjoide_1.jpg)
+![An orange with continents drawn on the surface](https://kaiserscience.files.wordpress.com/2019/12/map-earth-on-orange-sphere.jpg)
 
-Image source: http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/
+![An orange peeled like a map projection](https://kaiserscience.files.wordpress.com/2019/12/map-earth-on-orange-sphere.jpg)
+
+Image source: https://kaiserscience.wordpress.com/earth-science/maps/map-projections/
 
 
 ## Additional Parameters
