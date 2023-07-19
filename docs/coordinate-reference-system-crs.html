@@ -23,7 +23,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2023-07-18" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,7 +121,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>3</b> Conclusion</a></li>
-<li class="chapter" data-level="4" data-path="resources-used-to-compile-this-tutorial.html"><a href="resources-used-to-compile-this-tutorial.html"><i class="fa fa-check"></i><b>4</b> Resources Used to Compile this Tutorial:</a></li>
+<li class="chapter" data-level="4" data-path="additional-learning-resources.html"><a href="additional-learning-resources.html"><i class="fa fa-check"></i><b>4</b> Additional Learning Resources:</a></li>
 <li class="chapter" data-level="5" data-path="assessment.html"><a href="assessment.html"><i class="fa fa-check"></i><b>5</b> Assessment</a></li>
 <li class="divider"></li>
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
@@ -147,8 +147,9 @@
             <section class="normal" id="section-">
 <div id="coordinate-reference-system-crs" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Coordinate Reference System (CRS)<a href="coordinate-reference-system-crs.html#coordinate-reference-system-crs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A coordinate reference system (CRS) is the way we translate locations measured on a spherical surface (the earth or other planet) onto a flat surface (a map printed on paper or displayed on a screen).</p>
 <p><strong>CRS = Datum + Projection + Additional Parameters</strong></p>
-<p><em>A common analogy employed to teach projections is the orange peel analogy. If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made. We will also use it here.</em></p>
+<p><em>A common analogy employed to teach projections is the <a href="https://ceiengineers.com/about/news-media?id=34025/how-is-a-map-projection-like-an-orange-peel">orange peel analogy</a>. If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made. We will also use it here.</em></p>
 <div id="datum" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Datum<a href="coordinate-reference-system-crs.html#datum" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>Datum</strong> is a model of the shape of the earth.</p>
@@ -165,34 +166,35 @@
 <p>The units associated with a given projection are usually linear (feet, meters, etc.).</p>
 <p>Many people use the term “projection” when they actually mean “coordinate reference system”. (With good reason, right? Coordinate References System is long and might make you sound pretentious.) One example is the title of this workshop… but you wouldn’t know what it was about if I said it was a workshop on “Coordinate Reference Systems in R”, would you?</p>
 <p><em>Orange Peel Analogy: a projection is how you peel your orange and then flatten the peel.</em></p>
-<p><img src="http://blogs.lincoln.ac.nz/gis/wp-content/uploads/sites/16/2017/03/laranjoide_1.jpg" alt="An orange peeled like a map projection" /></p>
-<p>Image source: <a href="http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/" class="uri">http://blogs.lincoln.ac.nz/gis/2017/03/29/where-on-earth-are-we/</a></p>
+<p><img src="https://kaiserscience.files.wordpress.com/2019/12/map-earth-on-orange-sphere.jpg" alt="An orange with continents drawn on the surface" /></p>
+<p><img src="https://kaiserscience.files.wordpress.com/2019/12/map-earth-on-orange-sphere.jpg" alt="An orange peeled like a map projection" /></p>
+<p>Image source: <a href="https://kaiserscience.wordpress.com/earth-science/maps/map-projections/" class="uri">https://kaiserscience.wordpress.com/earth-science/maps/map-projections/</a></p>
 </div>
 <div id="additional-parameters" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Additional Parameters<a href="coordinate-reference-system-crs.html#additional-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Additional parameters are often necessary to create the full coordinate reference system. For example, one common additional parameter is a definition of the center of the map. The number of required additional parameters depends on what is needed by each specific projection.</p>
-<p><em>Orange Peel Analogy: an additional parameter could include a definition of the location of the stem of the fruit.</em></p>
+<p><em>Orange Peel Analogy: an additional parameter could include a definition of the location or orientation of the stem of the fruit.</em></p>
 </div>
 <div id="which-crsprojection-should-i-use" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Which CRS/projection should I use?<a href="coordinate-reference-system-crs.html#which-crsprojection-should-i-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To decide if a projection is right for your data, answer these questions:
 1. What is the area of minimal distortion?
 2. What aspect of the data does it preserve?</p>
-<p><a href="https://www.colorado.edu/geography/gcraft/notes/mapproj/mapproj_f.html">University of Colorado’s Map Projections</a> and the <a href="http://kartoweb.itc.nl/geometrics/map%20projections/mappro.html">Department of Geo-Information Processing</a> has a good discussion of these aspects of projections. Online tools like <a href="http://projectionwizard.org/">Projection Wizard</a> can also help you discover projections that might be a good fit for your data.</p>
-<p>Comments from the pros: Take the time to figure identify a projection that is suited for your project. You don’t have to stick to the ones that are popular.</p>
+<p><a href="https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html">The Geographer’s Craft Map Projection Overview</a>, <a href="http://www.geo.hunter.cuny.edu/~jochen/gtech201/lectures/lec6concepts/map%20coordinate%20systems/how%20to%20choose%20a%20projection.htm">CUNY Hunter College</a>, and <a href="https://kaiserscience.wordpress.com/earth-science/maps/map-projections/">Kaiser Science</a> have good discussions of these aspects of projections. Online tools like <a href="http://projectionwizard.org/">Projection Wizard</a> can also help you discover projections that might be a good fit for your data.</p>
+<p>Advice from the pros: Take the time to figure identify a projection that is suited for your project. You don’t have to stick to the ones that are popular.</p>
 </div>
 <div id="notation-for-coordinate-reference-systems" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Notation for Coordinate Reference Systems<a href="coordinate-reference-system-crs.html#notation-for-coordinate-reference-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You have two options for identifying a CRS in most tools for working with geospatial data. The documentation for a command or function that requires projection information will tell you which is required. Often you can choose between the two options.</p>
+<p>You typically have two options for identifying a CRS in most tools for working with geospatial data. The documentation for a command or function that requires projection information will tell you which is required. Often you can choose between the two options.</p>
 <div id="epsg-code" class="section level3 hasAnchor" number="1.5.1">
 <h3><span class="header-section-number">1.5.1</span> EPSG Code<a href="coordinate-reference-system-crs.html#epsg-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>A note on linguistics:</em> EPSG stands for “European Petroleum Survey Group”… but everyone just says EPSG.</p>
-<p>An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy. An EPSG Code is also called an SRID (Spatial Reference Identifier). Technically, EPSG is the authority that assigns SRIDs, but you will hear these terms used interchangeably.</p>
+<p>An EPSG Code is an ID that has been assigned to most common projections to make reference to a particular projection easy. It is a method for standardizing references to map projections. An EPSG Code is also called an SRID (Spatial Reference Identifier). Technically, EPSG is the authority that assigns SRIDs, but you will hear these terms used interchangeably.</p>
 <p>The main advantages to using this method of specifying a projection are that it is standardized and ensures you have the same parameters every time. The disadvantage is that if you need to know the parameters used by the projection or it’s name, you have to look them up, but that’s fairly easy to to at <a href="http://spatialreference.org/ref/epsg/">spatialreference.org</a>. Also, you can’t customize the parameters if you use an EPSG code. For example: <code>EPSG:27561</code></p>
 </div>
 <div id="proj-string" class="section level3 hasAnchor" number="1.5.2">
 <h3><span class="header-section-number">1.5.2</span> PROJ String<a href="coordinate-reference-system-crs.html#proj-string" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PROJ is an open source library for defining and converting between coordinate reference systems. It defines a standard way to write projection parameters. For example: <code>+proj=lcc +lat_1=49.5 +lat_0=49.5 +lon_0=0 +k_0=0.999877341 +x_0=6 +y_0=2 +a=6378249.2 +b=6356515 +towgs84=-168,-60,320,0,0,0,0 +pm=paris +units=m +no_defs</code></p>
+<p><a href="https://www.osgeo.org/projects/proj/">PROJ</a> is an open source library for defining and converting between coordinate reference systems. It defines a standard way to write projection parameters. For example: <code>+proj=lcc +lat_1=49.5 +lat_0=49.5 +lon_0=0 +k_0=0.999877341 +x_0=6 +y_0=2 +a=6378249.2 +b=6356515 +towgs84=-168,-60,320,0,0,0,0 +pm=paris +units=m +no_defs</code></p>
 <p>Two important advantages to using this option are (1) the parameters are human-readable and immediately transparent and (2) the strings are easily customized. The main disadvantage to this option is that it’s easy to make a mistake when you reproduce the string, accidentally changing parameters.</p>
 <p><em>A note on linguistics:</em> PROJ is commonly pronounced “prodge” (“PROJ” rhymes with “dodge”); PROJ is short for “projection”. Sometimes people will add a number to the end of PROJ to indicate which version of the library they are referring to.</p>
 </div>

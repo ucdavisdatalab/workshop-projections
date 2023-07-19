@@ -28,5 +28,5 @@ define-a-crs
 transform-reprojecting-raster-data
 plot-all-the-data
 conclusion
-resources-used-to-compile-this-tutorial
+additional-learning-resources
 assessment
