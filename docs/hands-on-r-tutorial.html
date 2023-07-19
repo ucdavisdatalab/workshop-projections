@@ -23,7 +23,7 @@
 <meta name="author" content="Michele Tobias" />
 
 
-<meta name="date" content="2023-07-18" />
+<meta name="date" content="2023-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,7 +121,7 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>3</b> Conclusion</a></li>
-<li class="chapter" data-level="4" data-path="resources-used-to-compile-this-tutorial.html"><a href="resources-used-to-compile-this-tutorial.html"><i class="fa fa-check"></i><b>4</b> Resources Used to Compile this Tutorial:</a></li>
+<li class="chapter" data-level="4" data-path="additional-learning-resources.html"><a href="additional-learning-resources.html"><i class="fa fa-check"></i><b>4</b> Additional Learning Resources:</a></li>
 <li class="chapter" data-level="5" data-path="assessment.html"><a href="assessment.html"><i class="fa fa-check"></i><b>5</b> Assessment</a></li>
 <li class="divider"></li>
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
@@ -147,11 +147,12 @@
             <section class="normal" id="section-">
 <div id="hands-on-r-tutorial" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> Hands-On R Tutorial<a href="hands-on-r-tutorial.html#hands-on-r-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Finally, now we’re going to work in R to get some hands-on practice with the concepts we just discussed.</p>
-<p>We’ll be working with sp objects today, but you should also know that there are sf objects as well. <a href="https://cran.r-project.org/web/views/Spatial.html">Roger Bivand’s review of spatial data for R</a> is helpful for understading the options for working with spatial data.</p>
+<p>Now we’re going to work in R to get some hands-on practice with the concepts we just discussed.</p>
+<p>We’ll be working with the sf and terra libraries today, but these are not the only ways to represent spatial data in R. <a href="https://cran.r-project.org/web/views/Spatial.html">Roger Bivand’s review of spatial data for R</a> is helpful for understanding the options for working with spatial data.</p>
 <div id="download-the-data" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Download the Data<a href="hands-on-r-tutorial.html#download-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data for this workshop is available in the <a href="https://github.com/MicheleTobias/R-Projections-Workshop/tree/master/Data">data folder</a> in this repository, or you can <a href="https://figshare.com/s/f68e06c4177e27d0aa47">download a .zip file from FigShare</a>.</p>
+<p>The data for this workshop is available in this <a href="https://ucdavis.box.com/s/nyznmwattm442wek2er085pi5kvenka1">Box folder</a>. Note: you do not need to log in to Box to download the data. Use the download button in the upper right corner to download all the data as a .zip file. Remember to unzip it on your computer where you can easily access it.</p>
+<p>The data we’ll be working with today is data related to the San Francisco Bay watershed. We have county boundaries (polygons), flowlines (lines representing rivers and streams), watershed boundaries (polygons), and watershed centroids (points). This data is an extract from the <a href="https://www.usgs.gov/national-hydrography/national-hydrography-dataset">USGS’s National Hydrography Dataset</a>.</p>
 </div>
 <div id="start-r" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Start R<a href="hands-on-r-tutorial.html#start-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -179,9 +180,9 @@ TIP: Windows users, use \ instead of  or switch the direction of the slashes t
 <p>Next, we’ll read the data into our R session
 Because “points” by itself is a command and we don’t want confusion, I’ve added “ws.” (WS for watershed) to the front of my variable names.</p>
 <p>Most of the vector data formats can be read into r with the <code>st_read</code> function. To see the help files for this function, run <code>?st_read</code> in your console.</p>
-<pre><code>ws.points&lt;-st_read(&quot;data/WBDHU8_Points_SF.geojson&quot;)
-ws.polygons&lt;-st_read(&quot;data/WBDHU8_SF.geojson&quot;)
-ws.streams&lt;-st_read(&quot;data/flowlines.shp&quot;)</code></pre>
+<pre><code>ws.points&lt;-st_read(&quot;WBDHU8_Points_SF.geojson&quot;)
+ws.polygons&lt;-st_read(&quot;WBDHU8_SF.geojson&quot;)
+ws.streams&lt;-st_read(&quot;flowlines.shp&quot;)</code></pre>
 <p>Let’s look at the contents of one of the files:</p>
 <pre><code>ws.polygons</code></pre>
 <p>Note that the output not only shows the data but gives you some metadata as well, such as the geometry type, bounding box (bbox), and the projected CRS, which is “NAD83 / California Albers”.</p>
@@ -197,7 +198,7 @@ st_crs(ws.streams)</code></pre>
 </div>
 <div id="defining-a-crs" class="section level3 hasAnchor" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Defining a CRS<a href="hands-on-r-tutorial.html#defining-a-crs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s be clear that the streams data <em>has</em> a CRS, but R doesn’t know what it should be. (Someone may have forgotten to include the .prj file in this shapefile.) You don’t get to decide what you want it to be, but rather figure out what it <em>IS</em> and tell R which coordinate system to use. How do you know which CRS the data has if its not properly defined? Typically, you first ask the person who sent it. If that fails, you can search for another version of the data online to get a file with the correct projection information. Finally, outright guessing can work, but isn’t recommended. We know that the CRS for this data should be EPSG 3309 (because that’s what the instructor saved it as before she deleted the .prj file… shapefiles are not a great exchange format, FYI).</p>
+<p>Let’s be clear that the streams data <em>has</em> a CRS, but R doesn’t know what it should be. (Someone may have forgotten to include the .prj file in this shapefile.) You don’t get to decide what you want it to be, but rather figure out what it <em>IS</em> and tell R which coordinate system to use. How do you know which CRS the data has if its not properly defined? Typically, you first ask the person who sent it. If that fails, you can search for another version of the data online to get a file with the correct projection information. Finally, outright guessing can work, but isn’t recommended. We know that the CRS for this data should be EPSG 3309 (because that’s the projection the instructor tranformed it to before she deleted the .prj file for this exercise… shapefiles are not a great exchange format, FYI).</p>
 <p>Set the CRS:</p>
 <pre><code>ws.streams.3309&lt;-st_set_crs(ws.streams, value=3309) 
 </code></pre>
