@@ -74,7 +74,7 @@ plot(ws.polygons$geometry, lwd=2, border="grey35", add=TRUE)
 library(terra)
 
 #load data
-dem<-rast(x="data/DEM_SF.tif")
+dem<-rast(x="DEM_SF.tif")
 
 # identify the existing CRS
 crs(dem)
