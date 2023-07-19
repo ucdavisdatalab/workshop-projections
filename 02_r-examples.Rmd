@@ -1,11 +1,13 @@
 # Hands-On R Tutorial
-Finally, now we're going to work in R to get some hands-on practice with the concepts we just discussed.
+Now we're going to work in R to get some hands-on practice with the concepts we just discussed.
 
-We'll be working with sp objects today, but you should also know that there are sf objects as well.  [Roger Bivand's review of spatial data for R](https://cran.r-project.org/web/views/Spatial.html) is helpful for understading the options for working with spatial data.
+We'll be working with the sf and terra libraries today, but these are not the only ways to represent spatial data in R.  [Roger Bivand's review of spatial data for R](https://cran.r-project.org/web/views/Spatial.html) is helpful for understanding the options for working with spatial data.
 
 ## Download the Data
 
-The data for this workshop is available in the [data folder](https://github.com/MicheleTobias/R-Projections-Workshop/tree/master/Data) in this repository, or you can [download a .zip file from FigShare](https://figshare.com/s/f68e06c4177e27d0aa47).
+The data for this workshop is available in this [Box folder](https://ucdavis.box.com/s/nyznmwattm442wek2er085pi5kvenka1). Note: you do not need to log in to Box to download the data. Use the download button in the upper right corner to download all the data as a .zip file. Remember to unzip it on your computer where you can easily access it.
+
+The data we'll be working with today is data related to the San Francisco Bay watershed. We have county boundaries (polygons), flowlines (lines representing rivers and streams), watershed boundaries (polygons), and watershed centroids (points). This data is an extract from the [USGS's National Hydrography Dataset](https://www.usgs.gov/national-hydrography/national-hydrography-dataset).
 
 ## Start R
 Pick the R flavor of your choice - regular R, R Studio, etc. - and start it up.  You can either add the commands we'll be using to a script file to run, or you can just run the lines individually in your console to see how they work.  It's up to you.
@@ -39,9 +41,9 @@ Because "points" by itself is a command and we don't want confusion, I've added 
 Most of the vector data formats can be read into r with the ```st_read``` function. To see the help files for this function, run ```?st_read``` in your console.
 
 ```
-ws.points<-st_read("data/WBDHU8_Points_SF.geojson")
-ws.polygons<-st_read("data/WBDHU8_SF.geojson")
-ws.streams<-st_read("data/flowlines.shp")
+ws.points<-st_read("WBDHU8_Points_SF.geojson")
+ws.polygons<-st_read("WBDHU8_SF.geojson")
+ws.streams<-st_read("flowlines.shp")
 ```
 
 
@@ -68,7 +70,7 @@ st_crs(ws.streams)
 It looks like the streams dataset does not have its CRS defined.  
 
 ### Defining a CRS
-Let's be clear that the streams data *has* a CRS, but R doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *IS* and tell R which coordinate system to use.  How do you  know which CRS the data has if its not properly defined?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's what the instructor saved it as before she deleted the .prj file... shapefiles are not a great exchange format, FYI).
+Let's be clear that the streams data *has* a CRS, but R doesn't know what it should be.  (Someone may have forgotten to include the .prj file in this shapefile.)  You don't get to decide what you want it to be, but rather figure out what it *IS* and tell R which coordinate system to use.  How do you  know which CRS the data has if its not properly defined?  Typically, you first ask the person who sent it.  If that fails, you can search for another version of the data online to get a file with the correct projection information.  Finally, outright guessing can work, but isn't recommended.  We know that the CRS for this data should be EPSG 3309 (because that's the projection the instructor tranformed it to before she deleted the .prj file for this exercise... shapefiles are not a great exchange format, FYI).
 
 Set the CRS:
 

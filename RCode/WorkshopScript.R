@@ -13,13 +13,13 @@
 
 library("sf")
 
-# set working directory
-setwd("D:/WorkshopData/PREP_Projections")
+# set working directory (change the path text to indicate where your data is saved on your computer)
+setwd("D:/WorkshopData/Data_R_Projections_Workshop")
 
 # load data
-ws.points<-st_read("data/WBDHU8_Points_SF.geojson")
-ws.polygons<-st_read("data/WBDHU8_SF.geojson")
-ws.streams<-st_read("data/flowlines.shp")
+ws.points<-st_read("WBDHU8_Points_SF.geojson")
+ws.polygons<-st_read("WBDHU8_SF.geojson")
+ws.streams<-st_read("flowlines.shp")
 
 
 # Vector Data CRS ---------------------------------------------------------
@@ -51,7 +51,7 @@ st_crs(ws.streams.3310)
 
 #Load up the CA Counties layer to use as reference in a map:
 
-ca.counties<-st_read("data/CA_Counties.geojson")
+ca.counties<-st_read("CA_Counties.geojson")
 
 # plot the data
 plot(
@@ -70,7 +70,7 @@ plot(ws.polygons$geometry, lwd=2, border="grey35", add=TRUE)
 
 
 # Raster Data CRS ---------------------------------------------------------
-install.packages("terra")
+#install.packages("terra")
 library(terra)
 
 #load data
