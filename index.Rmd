@@ -55,4 +55,7 @@ Participants should have
 1. A basic understanding of how to program in the language used in the workshop (either R or Python). 
 2. A basic understanding of spatial data formats, raster and vector data in particular.
 
-Participants needing to learn or brush up on their relevant skills can find materials on [DataLab's Workshop Index](https://ucdavisdatalab.github.io/workshop_index/).
+Participants needing to learn or brush up on their relevant skills can find materials on [DataLab's Workshop Index](https://ucdavisdatalab.github.io/workshop_index/). Suggested preparation includes:
+
+1. [R Basics](https://ucdavisdatalab.github.io/workshop_r_basics/) or [Python Basics](https://ucdavisdatalab.github.io/workshop_python_basics), depending on the focus of the workshop being presented
+2. [Introduction to GIS with QGIS](https://ucdavisdatalab.github.io/Intro-to-Desktop-GIS-with-QGIS/) - just the introductory material about spatial data formats, before the hands-on portion.
