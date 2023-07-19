@@ -6,11 +6,14 @@
 1. [The Geographer's Craft](https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html)
 1. [ESRI Resource Center - Projections](http://help.arcgis.com/en/geodatabase/10.0/sdk/arcsde/concepts/geometry/coordref/coordsys/projected/mapprojections.htm#:~:text=False%20easting%20is%20a%20linear,origin%20of%20the%20y%20coordinates.&text=For%20example%2C%20if%20you%20know,a%20false%20northing%20of%20%2D5%2C000%2C000.)
 1. [National Geographic Society's Investigating Map Projections](https://www.nationalgeographic.org/activity/investigating-map-projections/)
+1. [Map Projection by Penn State's Dutton Institute](https://www.e-education.psu.edu/geog862/node/1808)
+1. [Map Projections by Kaiser Science](https://kaiserscience.wordpress.com/earth-science/maps/map-projections/)
 
 Map Projection Fun:
 
 1. [xkcd's Map Projections](https://xkcd.com/977/)
 1. [Jason Davies' Map Projection Transitions](https://www.jasondavies.com/maps/transition/)
+1. [ESRI's Earth Peel by John Nelson](https://www.esri.com/arcgis-blog/products/arcgis-pro/education/earth-peel/)
 
 
 
