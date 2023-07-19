@@ -1,5 +1,7 @@
 # Coordinate Reference System (CRS)
 
+A coordinate reference system (CRS) is the way we translate locations measured on a spherical surface (the earth or other planet) onto a flat surface (a map printed on paper or displayed on a screen).
+
 **CRS = Datum + Projection + Additional Parameters**
 
 *A common analogy employed to teach projections is the orange peel analogy.  If you imagine that the earth is an orange, how you peel it and then flatten the peel is similar to how projections get made.   We will also use it here.*
